@@ -10,7 +10,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 import pathlib
-dataset_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz"
+dataset_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz" # Replace with images
 data_dir = tf.keras.utils.get_file('flower_photos', origin=dataset_url, untar=True)
 data_dir = pathlib.Path(data_dir)
 
@@ -19,7 +19,7 @@ batch_size = 24
 img_height = 180
 img_width = 180
 
-# All our data is training data
+# All our data is training data since such a small data set
 train_ds = tf.keras.utils.image_dataset_from_directory(
   data_dir,
   validation_split=1,
@@ -113,7 +113,7 @@ plt.title('Training and Validation Loss')
 plt.show()
 
 # Predict on new data
-bw_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/592px-Red_sunflower.jpg"
+bw_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/592px-Red_sunflower.jpg" # Replace with given images
 bw_path = tf.keras.utils.get_file('Red_sunflower', origin=sunflower_url)
 
 img = tf.keras.utils.load_img(
