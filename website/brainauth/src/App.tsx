@@ -1,7 +1,7 @@
 import { Line } from "react-chartjs-2";
 import { CategoryScale, Chart, registerables } from "chart.js";
 import "./App.css";
-import { Forms } from "./Form";
+import { Forms } from "./components/Form";
 
 export const options = {
   responsive: true,
