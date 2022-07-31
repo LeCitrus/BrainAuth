@@ -23,11 +23,30 @@ export const Forms: React.FC<Props> = ({onSubmit}) => {
         setFile(e.target.files[0]);
     };
     
-    const handleCsvSubmit = (e : any) => {
+    async function sendData (values : any, file : any, url : string)  
+{
+    console.log(values, file, url)
+    const body = {
+        "First Name": values.firstName,
+        "Last Name": values.lastName,
+        "Data": file
+    }
+    await fetch(url, {
+      credentials: 'include',
+      method: 'POST',
+      mode: 'no-cors',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+  }
+    const handleCsvSubmit = (file : any, values : any) => {
 
         if (file) {
             fileReader.onload = function (event : any) {
                 const csvOutput = event.target.result;
+                sendData(values, csvOutput, "http://localhost:5000/login")
                 console.log(csvOutput)
             };
 
@@ -35,12 +54,15 @@ export const Forms: React.FC<Props> = ({onSubmit}) => {
         }
     };
 
+    
+
+
     return (
     <Formik 
     initialValues={{firstName: '', lastName: ''}} 
     onSubmit={values => {
         onSubmit(values);
-        handleCsvSubmit(file);
+        handleCsvSubmit(file, values);
     }}
     >
      {({values, handleChange, handleBlur}) => (
