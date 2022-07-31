@@ -75,11 +75,6 @@ export const Forms: React.FC<Props> = ({ setData, onSubmit }) => {
         }
     };
 
-
-      fileReader.readAsText(file);
-    }
-  };
-
   return (
     <Formik
       initialValues={{ firstName: "", lastName: "" }}
