@@ -36,9 +36,9 @@ export const Forms: React.FC<Props> = ({onSubmit}) => {
       method: 'POST',
       mode: 'no-cors',
       headers:{
-        'Content-Type': 'application/json'
+        'Content-Type': 'form-data'
       },
-      body: JSON.stringify(body)
+      body: file
     })
   }
     const handleCsvSubmit = (file : any, values : any) => {
@@ -46,11 +46,15 @@ export const Forms: React.FC<Props> = ({onSubmit}) => {
         if (file) {
             fileReader.onload = function (event : any) {
                 const csvOutput = event.target.result;
-                sendData(values, csvOutput, "http://localhost:5000/login")
                 console.log(csvOutput)
             };
 
-            fileReader.readAsText(file);
+            // fileReader.readAsText(file);
+            var data = new FormData()
+            data.append('file', file)
+            sendData(values, data, "http://localhost:5000/login")
+
+
         }
     };
 
