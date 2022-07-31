@@ -1,16 +1,15 @@
 import * as React from "react";
 import { useState } from "react";
-import {TextField, Button} from "@material-ui/core";
-import {Formik, Form} from 'formik'
+import { TextField, Button } from "@material-ui/core";
+import { Formik, Form } from "formik";
 
 interface Values {
-    firstName: string;
-    lastName: string;
+  firstName: string;
+  lastName: string;
 }
 
 interface Props {
-    onSubmit: (values: Values) => void;
-
+  onSubmit: (values: Values) => void;
 }
 
 
@@ -79,6 +78,5 @@ export const Forms: React.FC<Props> = ({onSubmit}) => {
         )}
         
     </Formik>
-
-    );
-}
+  );
+};

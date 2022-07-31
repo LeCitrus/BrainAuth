@@ -2,11 +2,11 @@
 
 ## server
 
-The backend server is built with flask. To run the server:
+The backend server is built with flask. To start the server, run the following commands (for Windows):
 
-1. `cd server `
-2. (Windows)
-
+1. ```cd server ```
+2. ```source venv/scripts/activate```
+3.
 ```
    export FLASK_APP=brainauth_api/app.py
    export FLASK_ENV=development
