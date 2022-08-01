@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Pong from 'react-pong';
+import React from 'react';
 
 function App() {
   return (
@@ -18,7 +18,6 @@ function App() {
         >
           Learn React
         </a>
-        <Pong/>
       </header>
     </div>
   );
