@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@serialport/stream": "^10.3.0",
+    "fs": "^0.0.1-security",
     "serialport": "^10.4.0"
   }
 }
